@@ -6,7 +6,7 @@ exports.handler = async function(event, context) {
     return {
       statusCode: 200,
       headers: {
-        'Access-Control-Allow-Origin': 'https://docs.acqds.com', // Or restrict to your domain
+        'Access-Control-Allow-Origin': 'https://docs.acqds.com',
         'Access-Control-Allow-Headers': 'Content-Type',
         'Access-Control-Allow-Methods': 'POST, OPTIONS',
       },
@@ -55,7 +55,7 @@ exports.handler = async function(event, context) {
   return {
     statusCode: 200,
     headers: {
-      'Access-Control-Allow-Origin': '*', // Or restrict to your domain
+      'Access-Control-Allow-Origin': 'https://docs.acqds.com',
     },
     body: JSON.stringify({ success: true, sent: tokens.length }),
   };
