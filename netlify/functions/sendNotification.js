@@ -2,18 +2,25 @@
 let fetch;
 
 exports.handler = async function(event, context) {
+<<<<<<< HEAD
   // Dynamically import node-fetch
   if (!fetch) {
     const fetchModule = await import('node-fetch');
     fetch = fetchModule.default;
   }
 
+=======
+>>>>>>> ea8456e6b827066586c64dd692ebe53e9f7f50a9
   // --- CORS preflight handler ---
   if (event.httpMethod === 'OPTIONS') {
     return {
       statusCode: 200,
       headers: {
+<<<<<<< HEAD
         'Access-Control-Allow-Origin': 'https://acqds.com', // Changed to match your domain
+=======
+        'Access-Control-Allow-Origin': 'https://docs.acqds.com',
+>>>>>>> ea8456e6b827066586c64dd692ebe53e9f7f50a9
         'Access-Control-Allow-Headers': 'Content-Type',
         'Access-Control-Allow-Methods': 'POST, OPTIONS',
       },
@@ -44,6 +51,7 @@ exports.handler = async function(event, context) {
     const data = await res.json();
     const tokens = data.map(row => row.expo_push_token);
 
+<<<<<<< HEAD
     // 2. Prepare notification message
     let body = '';
     if (updateType === 'comment') body = 'A new comment was added to your project!';
@@ -93,3 +101,13 @@ exports.handler = async function(event, context) {
     };
   }
 };
+=======
+  return {
+    statusCode: 200,
+    headers: {
+      'Access-Control-Allow-Origin': 'https://docs.acqds.com',
+    },
+    body: JSON.stringify({ success: true, sent: tokens.length }),
+  };
+};
+>>>>>>> ea8456e6b827066586c64dd692ebe53e9f7f50a9
